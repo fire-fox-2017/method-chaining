@@ -19,16 +19,34 @@ let data = [{
 // Our object with the chainable methods using class in ES6
 class Program {
   constructor () {
+    this._data = data;
+    this.currentUser = null;
+    this.formattedData = "";
   }
+
   titleCaseName (string) {
   }
+
   findUser (email) {
+    for (let i = 0 ; i < this._data.length ; i++) {
+      // console.log(this._data[i]['email'])
+      if(this._data[i]['email'] == email) {
+        this.currentUser = this._data[i];
+        return this;
+      }
+
+    }
   }
   formatName () {
+    this.currentUser['fullName'] = this.currentUser.firstName + ' ' + this.currentUser.lastName;
+    return this;
   }
   formatData () {
+    this.formattedData = `Member name: ${this.currentUser['fullName']}\nID:${this.currentUser['id']}\nEmail: ${this.currentUser['email']}`;
+    return this;
   }
   displayUser () {
+    console.log(this.formattedData);
   }
 }
 
@@ -45,6 +63,10 @@ const program = new Program()
 // Member name: SpongeBob SquarePants
 // ID: 101
 // Email: spongebob@crustycrab.com
+
+// console.log(program.findUser('spongebob@crustycrab.com'))
+
+program.findUser('spongebob@crustycrab.com').formatName().formatData().displayUser()
 
 module.exports = {
   Program
