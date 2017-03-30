@@ -17,18 +17,37 @@ let data = [{
 }]
 
 // Our object with the chainable methods using class in ES6
+
 class Program {
   constructor () {
+    this.currentUser="";
   }
   titleCaseName (string) {
+    return string.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
   }
   findUser (email) {
+    for (let i=0; i<data.length; i++){
+      if (data[i].email===email){
+        this.currentUser=data[i];
+        break;
+      }
+    };
+    return this
   }
   formatName () {
+    this.currentUser.fullName = this.titleCaseName(this.currentUser.firstName) + " " + this.titleCaseName(this.currentUser.lastName);
+    return this;
   }
   formatData () {
+    this.currentUser.viewData = ["Member: " + this.currentUser.fullName, "ID: " + this.currentUser.id, "Email: " + this.currentUser.email];
+    return this;
   }
   displayUser () {
+   for(let i=0;i<this.currentUser.viewData.length;i++){
+     console.log(this.currentUser.viewData[i]);
+   }
   }
 }
 
