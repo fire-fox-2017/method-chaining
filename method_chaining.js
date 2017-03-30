@@ -13,14 +13,19 @@ class ShoutBackwards {
   constructor(words) {
   }
   allcaps () {
+    return allcaps;
   }
   splitting() {
+    return splitting;
   }
   reversing() {
+    return reversing;
   }
   backwards() {
+    return backwards;
   }
   addsuffix() {
+    return backwards + "!!!";
   }
 }
 
