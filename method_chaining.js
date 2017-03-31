@@ -8,19 +8,39 @@ var shout_backwards = (data) => {
 
 console.log(shout_backwards('Hello World'))
 
+
 class ShoutBackwards {
-  // your code here
-  constructor(words) {
+  constructor(string) {
+    this.string = string
   }
-  allcaps () {
+
+  allcaps(){
+    this.string = this.string.toUpperCase()
+    return this
   }
-  splitting() {
+
+  splitting(){
+    this.string = this.string.split('')
+    return this
   }
-  reversing() {
+
+  reversing(){
+    this.string = this.string.reverse()
+    return this
   }
-  backwards() {
+
+  backwards(){
+    this.string = this.string.join('')
+    return this
   }
-  addsuffix() {
+
+  addsuffix(){
+    this.string += '!!!'
+    return this
+  }
+
+  print(){
+    console.log( this.string)
   }
 }
 
