@@ -18,28 +18,38 @@ let data = [{
 
 // Our object with the chainable methods using class in ES6
 class Program {
-  constructor () {
+  constructor (list) {
+    this.list=list;
+    this.index=0;
+    this.Fname="";
   }
   titleCaseName (string) {
   }
   findUser (email) {
+    for (let i= 0; i < this.list.length; i++) {
+      if(email === this.list[i].email){
+        this.index = i;
+      }
+    }
   }
   formatName () {
+    this.Fname=`${this.list[this.index].firstName} ${this.list[this.index].lastName}`;
   }
   formatData () {
+    return `Hasil :\nMember Name : ${this.Fname}\nID : ${this.list[this.index].id}\nEmail : ${this.list[this.index].email}`;
   }
   displayUser () {
+    console.log (this.formatData());
   }
 }
 
 // -----------------------------------------------------------------------------
 // Kode di bawah ini merupakan driver code, jangan diubah ya
-const program = new Program()
-// program
-//   .findUser('spongebob@crustycrab.com')
-//   .formatName()
-//   .formatData()
-//   .displayUser()
+const program = new Program(data)
+program.findUser('spongebob@crustycrab.com')
+  program.formatName()
+  program.formatData()
+  program.displayUser()
 
 // Hasil:
 // Member name: SpongeBob SquarePants
