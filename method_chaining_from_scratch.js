@@ -43,13 +43,11 @@ class Program {
     return this;
   }
   formatName () {
-    this.fullName = this.firstName + ' ' + this.lastName;
+    this.fullName = `${this.firstName} ${this.lastName}`;
     return this;
   }
   formatData () {
-    this.formatDataBaru = 'Hasil : ' +this.fullName+
-                          '\nID : ' +this.id+
-                          '\nEmail : '+this.email;
+    this.formatDataBaru = `Hasil : ${this.fullName}\nID : ${this.id}\nEmail : ${this.email}`;
     return this;
   }
   displayUser () {
