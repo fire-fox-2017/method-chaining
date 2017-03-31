@@ -20,7 +20,7 @@ let data = [{
 
 // Our object with the chainable methods using class in ES6
 class Program {
-  constructor (data) {
+  constructor () {
     this.data = data;
     this.firstName = "";
     this.lastName = "";
@@ -57,9 +57,7 @@ class Program {
   }
 
   formatData () {
-    this.userData = `Member name: ${this.fullName}
-    ID: ${this.id}
-    Email: ${this.email} `;
+    this.userData = `Member name: ${this.fullName}\nID: ${this.id}\nEmail: ${this.email} `;
     return this;
   }
 
@@ -70,7 +68,7 @@ class Program {
 
 // -----------------------------------------------------------------------------
 // Kode di bawah ini merupakan driver code, jangan diubah ya
-const program = new Program(data)
+const program = new Program()
 program
   .findUser('spongebob@crustycrab.com')
   .formatName()
