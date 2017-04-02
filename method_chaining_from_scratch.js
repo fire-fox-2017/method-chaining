@@ -19,16 +19,42 @@ let data = [{
 // Our object with the chainable methods using class in ES6
 class Program {
   constructor () {
+    this.data;
+    this.firstName;
+    this.lastName;
+    this.email;
+    this.id;
+    this.fullName;
+    this.print;
   }
   titleCaseName (string) {
+    this.firstName=this.firstName.charAt(0).toUpperCase();
+    this.lastName=this.lastName.charAt(0).toUpperCase();
+    return this;
   }
   findUser (email) {
+    for (let i=0; i<data.length; i++){
+      if(data[i].email === email){
+        this.firstName=data[i].firstName;
+        this.lastName=data[i].lastName;
+        this.email=data[i].email;
+        this.id=data[i].id;
+        return this;
+      }
+    }
   }
   formatName () {
+    this.fullName=`${this.firstName} ${this.lastName}`;
+    return this;
   }
   formatData () {
+    this.print = `Member Name : ${this.fullName}
+    ID : ${this.id}
+    Email : ${this.email}`;
+    return this;
   }
   displayUser () {
+    console.log(this.print);
   }
 }
 
@@ -36,10 +62,10 @@ class Program {
 // Kode di bawah ini merupakan driver code, jangan diubah ya
 const program = new Program()
 // program
-//   .findUser('spongebob@crustycrab.com')
-//   .formatName()
-//   .formatData()
-//   .displayUser()
+   .findUser('spongebob@crustycrab.com')
+   .formatName()
+   .formatData()
+   .displayUser()
 
 // Hasil:
 // Member name: SpongeBob SquarePants
