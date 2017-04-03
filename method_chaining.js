@@ -34,7 +34,7 @@ class ShoutBackwards {
     return this;
   }
   print(){
-    console.log(this._ord);
+    console.log(this._word);
   }
 }
 
