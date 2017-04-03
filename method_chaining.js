@@ -11,16 +11,30 @@ console.log(shout_backwards('Hello World'))
 class ShoutBackwards {
   // your code here
   constructor(words) {
+    this._word = words;
   }
   allcaps () {
+    this._word = this._word.toUpperCase();
+    return this
   }
   splitting() {
+    this._word = this._word.split('')
+    return this
   }
   reversing() {
+    this._word = this._word.reverse()
+    return this;
   }
   backwards() {
+    this._word = this._word.join('');
+    return this;
   }
   addsuffix() {
+    this._word = this._word+'!!!';
+    return this;
+  }
+  print(){
+    console.log(this._word);
   }
 }
 
