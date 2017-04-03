@@ -20,8 +20,8 @@ let data = [{
 class Program {
   constructor () {
     this._temp = '';
-    this._fullName = '';
-    this._viewData = '';
+    this._fullname = '';
+    this._view = '';
   }
 
   // titleCaseName (string) {
@@ -31,8 +31,8 @@ class Program {
   findUser (email) {
     for (let i = 0; i < data.length; i++) {
       if (data[i].email === email) {
-        this._temp = (data[i])
-        break
+        this._temp = (data[i]);
+        break;
       }
     }
     return this
@@ -44,23 +44,23 @@ class Program {
   }
 
   formatData () {
-    this.viewData = `Member name: ${this._fullname} \nID: ${this._temp.id} \nEmail: ${this._temp.email}`;
+    this._view = `Member name: ${this._fullname} \nID: ${this._temp.id} \nEmail: ${this._temp.email}`;
     return this
   }
 
   displayUser () {
-    console.log(this._viewData);
+    console.log(`${this._view}`);
   }
 }
 
 // -----------------------------------------------------------------------------
 // Kode di bawah ini merupakan driver code, jangan diubah ya
-const program = new Program(data);
- program
-   .findUser('spongebob@crustycrab.com')
-   .formatName()
-   .formatData()
-   .displayUser()
+const program = new Program(data)
+program
+  .findUser('spongebob@crustycrab.com')
+  .formatName()
+  .formatData()
+  .displayUser()
 
 // Hasil:
 // Member name: SpongeBob SquarePants
